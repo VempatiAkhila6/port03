@@ -177,7 +177,7 @@
         <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
         <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
         <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact-form">Contact</a></li>
       </ul>
     </div>
   </div>
@@ -427,6 +427,26 @@
   if (skillsSection) {
     observer.observe(skillsSection);
   }
+  
+  // Close navbar when clicking nav links and scroll to section
+  document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    const navbarCollapse = document.getElementById('navbarNav');
+    const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+    
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        // Close the navbar after clicking
+        bsCollapse.hide();
+      });
+    });
+  });
   
   // Back to Top Button
   const backToTopBtn = document.getElementById('backToTopBtn');
