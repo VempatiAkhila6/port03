@@ -25,7 +25,7 @@
       letter-spacing: 1px;
     }
     .hero-bg {
-      background: linear-gradient(120deg, #2563eb 0%, #00bcd4 100%);
+      background: linear-gradient(120deg, #60a5fa 0%, #93c5fd 100%);
       color: #fff;
       border-radius: 24px;
       box-shadow: 0 4px 32px rgba(0,0,0,0.08);
@@ -94,6 +94,12 @@
       font-weight: 600;
       min-width: 48px;
     }
+    .progress-bar {
+      transition: width 1.5s ease-in-out;
+    }
+    .skill-percentage {
+      transition: all 1.5s ease-in-out;
+    }
     @media (max-width: 767px) {
       .profile-img { width: 110px; height: 110px; }
       .section-title { font-size: 1.3rem; }
@@ -108,15 +114,57 @@
       border-color: #00bcd4 !important;
       box-shadow: 0 0 0 0.2rem rgba(0,188,212,.15) !important;
     }
+    .navbar-toggler {
+      border: none;
+      padding: 0.5rem;
+    }
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+    .navbar-toggler-icon {
+      font-size: 1.5rem;
+      color: #2563eb;
+    }
+    .navbar-collapse {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      margin-top: 8px;
+      padding: 10px;
+    }
+    .navbar-nav {
+      flex-direction: row !important;
+      gap: 10px;
+    }
+    .navbar-nav .nav-item {
+      margin: 0;
+    }
+    .navbar-nav .nav-link {
+      padding: 8px 16px;
+      border: 2px solid #2563eb;
+      border-radius: 6px;
+      background: white;
+      color: #2563eb !important;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-align: center;
+      min-width: 100px;
+    }
+    .navbar-nav .nav-link:hover {
+      background: #2563eb !important;
+      color: white !important;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+    }
   </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="80" tabindex="0">
 
 <!-- Navbar -->
-<nav id="mainNavbar" class="navbar navbar-expand-lg navbar-light sticky-top shadow-sm">
+<nav id="mainNavbar" class="navbar navbar-light sticky-top shadow-sm">
   <div class="container">
     <a class="navbar-brand fw-bold" href="#">Akhila ♡</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -144,7 +192,7 @@
       <p class="lead mb-3">
         Passionate about data, coding, and building beautiful web experiences. I love solving real-world problems with technology and collaborating in teams.
       </p>
-      <a href="Vempati_akhila_resume_ (1).pdf" class="btn btn-success btn-cta me-2 mb-2" download>
+      <a href="vempati_akhila_resume.pdf" class="btn btn-success btn-cta me-2 mb-2" download>
         <i class="fas fa-file-download"></i> Download Resume
       </a>
       <a href="https://www.linkedin.com/in/akhila-vempati-747439277" class="btn btn-primary btn-cta me-2 mb-2" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
@@ -158,8 +206,8 @@
   <h2 class="section-title" data-aos="fade-right">Projects</h2>
   <div class="row">
     <!-- Project 1 -->
-    <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
-      <div class="card project-card h-100 shadow-sm d-flex flex-column justify-content-center align-items-center">
+    <div class="col-12 mb-5" data-aos="fade-up">
+      <div class="card project-card shadow-sm">
         <div class="card-body text-center">
           <h5 class="card-title">YOUTUBE DOWNLOADER</h5>
           <p class="card-text">YT DOWNLOADER :Download preminum quality videos with advanced YOUTUBE downloader ,now offering 
@@ -168,7 +216,22 @@
         </div>
       </div>
     </div>
-    <div class="project-gap w-100"></div>
+    
+    <!-- Project 2 -->
+    <div class="col-12 mb-5" data-aos="fade-up" data-aos-delay="100">
+      <div class="card project-card shadow-sm">
+        <div class="card-body text-center">
+          <h5 class="card-title">BMI CALCULATOR</h5>
+          <p class="card-text">Designed a simple tool to calculate BMI using height and weight to assess underweight, 
+            normal, overweight, or obese status. A user-friendly web application that provides instant health insights.</p>
+          <a href="https://vempatiakhila6.github.io/BMI-calculator/" class="btn btn-primary btn-sm mt-2" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Visit Project
+          </a>
+        </div>
+      </div>
+    </div>
+    
+   
     <!-- Add more projects as needed, just copy the above block and update the title/description -->
   
   </div>
@@ -182,28 +245,28 @@
       <div class="mb-3">
         <div class="d-flex justify-content-between align-items-center mb-1">
           <span class="skill-label"><i class="fab fa-python text-primary"></i> Python</span>
-          <span class="badge bg-primary skill-badge">80%</span>
+          <span class="badge bg-primary skill-badge skill-percentage" data-percentage="60">0%</span>
         </div>
         <div class="progress" style="height: 1.2rem;">
-          <div class="progress-bar bg-primary" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+          <div class="progress-bar bg-primary" role="progressbar" data-percentage="60" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
       </div>
       <div class="mb-3">
         <div class="d-flex justify-content-between align-items-center mb-1">
           <span class="skill-label"><i class="fab fa-java text-warning"></i> Java</span>
-          <span class="badge bg-warning text-dark skill-badge">75%</span>
+          <span class="badge bg-warning text-dark skill-badge skill-percentage" data-percentage="75">0%</span>
         </div>
         <div class="progress" style="height: 1.2rem;">
-          <div class="progress-bar bg-warning text-dark" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+          <div class="progress-bar bg-warning text-dark" role="progressbar" data-percentage="75" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
       </div>
       <div class="mb-3">
         <div class="d-flex justify-content-between align-items-center mb-1">
           <span class="skill-label"><i class="fas fa-code text-info"></i> C</span>
-          <span class="badge bg-info text-dark skill-badge">60%</span>
+          <span class="badge bg-info text-dark skill-badge skill-percentage" data-percentage="60">0%</span>
         </div>
         <div class="progress" style="height: 1.2rem;">
-          <div class="progress-bar bg-info text-dark" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+          <div class="progress-bar bg-info text-dark" role="progressbar" data-percentage="60" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
       </div>
     </div>
@@ -211,28 +274,28 @@
       <div class="mb-3">
         <div class="d-flex justify-content-between align-items-center mb-1">
           <span class="skill-label"><i class="fab fa-html5 text-danger"></i> HTML</span>
-          <span class="badge bg-danger skill-badge">90%</span>
+          <span class="badge bg-danger skill-badge skill-percentage" data-percentage="90">0%</span>
         </div>
         <div class="progress" style="height: 1.2rem;">
-          <div class="progress-bar bg-danger" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+          <div class="progress-bar bg-danger" role="progressbar" data-percentage="90" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
       </div>
       <div class="mb-3">
         <div class="d-flex justify-content-between align-items-center mb-1">
           <span class="skill-label"><i class="fab fa-css3-alt text-success"></i> CSS</span>
-          <span class="badge bg-success skill-badge">85%</span>
+          <span class="badge bg-success skill-badge skill-percentage" data-percentage="80">0%</span>
         </div>
         <div class="progress" style="height: 1.2rem;">
-          <div class="progress-bar bg-success" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+          <div class="progress-bar bg-success" role="progressbar" data-percentage="80" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
       </div>
       <div class="mb-3">
         <div class="d-flex justify-content-between align-items-center mb-1">
           <span class="skill-label"><i class="fas fa-database text-secondary"></i> MySQL</span>
-          <span class="badge bg-secondary skill-badge">70%</span>
+          <span class="badge bg-secondary skill-badge skill-percentage" data-percentage="60">0%</span>
         </div>
         <div class="progress" style="height: 1.2rem;">
-          <div class="progress-bar bg-secondary" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+          <div class="progress-bar bg-secondary" role="progressbar" data-percentage="60" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
       </div>
     </div>
@@ -320,6 +383,48 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init({ once: true, duration: 800 });
+  
+  // Skill Animation Function
+  function animateSkills() {
+    const skillPercentages = document.querySelectorAll('.skill-percentage');
+    const progressBars = document.querySelectorAll('.progress-bar[data-percentage]');
+    
+    skillPercentages.forEach((percentage, index) => {
+      const targetPercentage = parseInt(percentage.getAttribute('data-percentage'));
+      let currentPercentage = 0;
+      
+      const interval = setInterval(() => {
+        currentPercentage += 1;
+        percentage.textContent = currentPercentage + '%';
+        
+        if (currentPercentage >= targetPercentage) {
+          clearInterval(interval);
+        }
+      }, 30); // Adjust speed here (lower = faster)
+    });
+    
+    progressBars.forEach((bar) => {
+      const targetPercentage = parseInt(bar.getAttribute('data-percentage'));
+      bar.style.width = targetPercentage + '%';
+      bar.setAttribute('aria-valuenow', targetPercentage);
+    });
+  }
+  
+  // Intersection Observer to trigger animation when skills section is visible
+  const skillsSection = document.getElementById('skills');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateSkills();
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  
+  if (skillsSection) {
+    observer.observe(skillsSection);
+  }
+  
   // Back to Top Button
   const backToTopBtn = document.getElementById('backToTopBtn');
   window.onscroll = function () {
@@ -331,5 +436,4 @@
 </script>
 </body>
 </html>
-
 
